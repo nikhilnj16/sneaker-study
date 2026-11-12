@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
+import { STUDY_TRIALS } from "@/data/studyTrials";
 import fs from "fs";
 import path from "path";
+
+export const dynamic = "force-dynamic";
 
 // Global in-memory storage array for serverless runtime
 declare global {
@@ -11,28 +14,15 @@ if (!global.globalSubmissions) {
   global.globalSubmissions = [];
 }
 
-function loadAllTrialsMap(): Record<string, any> {
-  try {
-    const filePath = path.join(process.cwd(), "data", "study_trials_200.json");
-    if (fs.existsSync(filePath)) {
-      const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-      const map: Record<string, any> = {};
-      data.forEach((t: any) => {
-        map[t.trial_id] = t;
-      });
-      // Add attention check
-      map["ATTN_CHECK_01"] = {
-        trial_id: "ATTN_CHECK_01",
-        ground_truth: "Replica",
-        is_attention_check: true,
-      };
-      return map;
-    }
-  } catch (e) {
-    console.error("Error reading study_trials_200.json:", e);
-  }
-  return {};
-}
+const trialsMap: Record<string, any> = {};
+STUDY_TRIALS.forEach((t) => {
+  trialsMap[t.trial_id] = t;
+});
+trialsMap["ATTN_CHECK_01"] = {
+  trial_id: "ATTN_CHECK_01",
+  ground_truth: "Replica",
+  is_attention_check: true,
+};
 
 export async function POST(request: Request) {
   try {
@@ -49,7 +39,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
     }
 
-    const trialsMap = loadAllTrialsMap();
     const timestamp = new Date().toISOString();
 
     const loggedRows = trials.map((t: any) => {
@@ -96,7 +85,6 @@ export async function POST(request: Request) {
       const jsonPath = path.join(dataDir, "collected_submissions.json");
       fs.writeFileSync(jsonPath, JSON.stringify(global.globalSubmissions, null, 2), "utf-8");
 
-      // Append to CSV
       const csvPath = path.join(dataDir, "collected_submissions.csv");
       const headers = Object.keys(loggedRows[0]).join(",");
       const csvRows = loggedRows.map((r: any) =>
@@ -112,7 +100,6 @@ export async function POST(request: Request) {
       }
     } catch (fsErr) {
       // In serverless read-only filesystem, fs write may fail silently - in-memory retains it
-      console.log("Filesystem write skipped (running serverless):", fsErr);
     }
 
     // Optional Supabase integration if environment variables are configured
@@ -145,4 +132,3 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
-
