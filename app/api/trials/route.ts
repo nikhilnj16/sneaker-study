@@ -43,6 +43,7 @@ export async function GET(request: Request) {
 
     // Sanitize for client response
     const sanitizedTrials = selected.map((trial: any, index: number) => {
+      const isAuth = trial.ground_truth === "Authentic";
       return {
         trial_index: index + 1,
         total_trials: selected.length,
@@ -50,6 +51,8 @@ export async function GET(request: Request) {
         sneaker_model: trial.sneaker_model,
         inspection_zone: trial.inspection_zone,
         image_filename: trial.image_filename,
+        visual_variant: isAuth ? "authentic" : "replica",
+        error_category: trial.error_category || "standard",
         is_attention_check: !!trial.is_attention_check,
         // For AI-assisted condition, include AI assistance telemetry
         ...(condition === "with-ai"

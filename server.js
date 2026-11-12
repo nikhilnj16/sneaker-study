@@ -77,6 +77,7 @@ const server = http.createServer((req, res) => {
       sneaker_model: trial.sneaker_model,
       inspection_zone: trial.inspection_zone,
       image_filename: trial.image_filename,
+      visual_variant: trial.ground_truth === "Authentic" ? "authentic" : "replica",
       is_attention_check: !!trial.is_attention_check,
       ...(condition === "with-ai"
         ? {

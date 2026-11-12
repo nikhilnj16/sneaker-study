@@ -221,6 +221,7 @@ export default function StudyRunner({ condition, title }: StudyRunnerProps) {
           sneakerModel={currentTrial.sneaker_model}
           inspectionZone={currentTrial.inspection_zone}
           trialId={currentTrial.trial_id}
+          visualVariant={currentTrial.visual_variant}
           isAttentionCheck={currentTrial.is_attention_check}
         />
 
