@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface ViewfinderProps {
   sneakerModel: string;
@@ -21,8 +21,7 @@ const SNEAKER_CATALOG: Record<
   }
 > = {
   "Air Jordan 1 Retro High OG 'Chicago'": {
-    image:
-      "https://images.stockx.com/images/Air-Jordan-1-Retro-High-OG-Chicago-Reimagined-Lost-and-Found-Product.jpg?fit=fill&bg=FFFFFF&w=600&h=400&fm=webp&auto=compress",
+    image: "/sneakers/chicago.jpg",
     styleCode: "DZ5485-612",
     colorway: "Varsity Red / Black / Sail / Muslin",
     brand: "Jordan Brand",
@@ -34,8 +33,7 @@ const SNEAKER_CATALOG: Record<
     },
   },
   "Nike Dunk Low 'Panda'": {
-    image:
-      "https://images.stockx.com/images/Nike-Dunk-Low-Retro-White-Black-2021-Product.jpg?fit=fill&bg=FFFFFF&w=600&h=400&fm=webp&auto=compress",
+    image: "/sneakers/panda.jpg",
     styleCode: "DD1391-100",
     colorway: "White / Black",
     brand: "Nike Sportswear",
@@ -47,8 +45,7 @@ const SNEAKER_CATALOG: Record<
     },
   },
   "Air Jordan 4 Retro 'Military Black'": {
-    image:
-      "https://images.stockx.com/images/Air-Jordan-4-Retro-Military-Black-Product.jpg?fit=fill&bg=FFFFFF&w=600&h=400&fm=webp&auto=compress",
+    image: "/sneakers/military_black.jpg",
     styleCode: "DH6927-111",
     colorway: "White / Black / Neutral Grey",
     brand: "Jordan Brand",
@@ -60,8 +57,7 @@ const SNEAKER_CATALOG: Record<
     },
   },
   "Travis Scott x Air Jordan 1 Low 'Reverse Mocha'": {
-    image:
-      "https://images.stockx.com/images/Air-Jordan-1-Low-OG-SP-Travis-Scott-Reverse-Mocha-Product.jpg?fit=fill&bg=FFFFFF&w=600&h=400&fm=webp&auto=compress",
+    image: "/sneakers/travis_mocha.jpg",
     styleCode: "DM7866-162",
     colorway: "Sail / University Red / Ridgerock",
     brand: "Jordan x Cactus Jack",
@@ -73,8 +69,7 @@ const SNEAKER_CATALOG: Record<
     },
   },
   "Yeezy Boost 350 V2 'Zebra'": {
-    image:
-      "https://images.stockx.com/images/Adidas-Yeezy-Boost-350-V2-Zebra-Product.jpg?fit=fill&bg=FFFFFF&w=600&h=400&fm=webp&auto=compress",
+    image: "/sneakers/zebra.jpg",
     styleCode: "CP9654",
     colorway: "White / Core Black / Red",
     brand: "Adidas Yeezy",
@@ -86,8 +81,7 @@ const SNEAKER_CATALOG: Record<
     },
   },
   "New Balance 550 'White Grey'": {
-    image:
-      "https://images.stockx.com/images/New-Balance-550-White-Grey-Product.jpg?fit=fill&bg=FFFFFF&w=600&h=400&fm=webp&auto=compress",
+    image: "/sneakers/nb550.jpg",
     styleCode: "BB550PB1",
     colorway: "White / Grey",
     brand: "New Balance",
@@ -109,6 +103,10 @@ export default function InspectionViewfinder({
   const [zoom, setZoom] = useState<number>(1);
   const [highContrast, setHighContrast] = useState<boolean>(false);
   const [imgError, setImgError] = useState<boolean>(false);
+
+  useEffect(() => {
+    setImgError(false);
+  }, [sneakerModel]);
 
   const shoeInfo = SNEAKER_CATALOG[sneakerModel] || {
     image: "",
