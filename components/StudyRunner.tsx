@@ -20,6 +20,7 @@ export default function StudyRunner({ condition, title }: StudyRunnerProps) {
   const [loading, setLoading] = useState(false);
   const [currentAiConsulted, setCurrentAiConsulted] = useState(false);
   const [currentAiLatency, setCurrentAiLatency] = useState<number | null>(null);
+  const [attentionError, setAttentionError] = useState<string | null>(null);
 
   // Survey responses
   const [mentalDemand, setMentalDemand] = useState<number>(3);
@@ -56,6 +57,19 @@ export default function StudyRunner({ condition, title }: StudyRunnerProps) {
 
   const handleTrialSubmit = (decision: string, confidence: number, reactionTimeMs: number) => {
     const currentTrial = trials[currentIndex];
+
+    // Enforce attention check validation
+    if (currentTrial.is_attention_check) {
+      if (decision !== "Replica" || confidence !== 5) {
+        setAttentionError(
+          "⚠ Attention Check: You must select 'Replica' and Confidence Level '5' as instructed to demonstrate attentive review before moving forward."
+        );
+        return;
+      }
+    }
+
+    setAttentionError(null);
+
     const record = {
       ...currentTrial,
       human_prediction: decision,
@@ -236,6 +250,29 @@ export default function StudyRunner({ condition, title }: StudyRunnerProps) {
               setCurrentAiLatency(latencyMs);
             }}
           />
+        )}
+
+        {/* Attention check validation alert */}
+        {attentionError && (
+          <div
+            style={{
+              background: "rgba(239, 68, 68, 0.18)",
+              border: "2px solid var(--rep-red)",
+              color: "#fecaca",
+              borderRadius: 8,
+              padding: "16px 20px",
+              marginTop: 16,
+              display: "flex",
+              alignItems: "center",
+              gap: 14,
+              fontWeight: "bold",
+              fontSize: 15,
+              boxShadow: "0 0 20px rgba(239, 68, 68, 0.35)",
+            }}
+          >
+            <span style={{ fontSize: 26 }}>🛑</span>
+            <span>{attentionError}</span>
+          </div>
         )}
 
         {/* Decision & 5-point Likert Panel */}

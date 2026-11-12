@@ -125,15 +125,18 @@ export default function InspectionViewfinder({
       return (
         <svg viewBox="0 0 600 300" style={{ width: "100%", height: "100%" }}>
           <rect width="600" height="300" fill="#1e1b4b" />
-          <circle cx="300" cy="110" r="45" fill="#4338ca" />
-          <text x="300" y="125" fill="#a5b4fc" fontSize="42" textAnchor="middle" fontWeight="bold">
+          <circle cx="300" cy="95" r="45" fill="#4338ca" />
+          <text x="300" y="110" fill="#a5b4fc" fontSize="42" textAnchor="middle" fontWeight="bold">
             ⚠
           </text>
-          <text x="300" y="190" fill="#f8fafc" fontSize="20" textAnchor="middle" fontWeight="bold">
+          <text x="300" y="175" fill="#f8fafc" fontSize="22" textAnchor="middle" fontWeight="bold">
             SYSTEM ATTENTION VERIFICATION CHECK
           </text>
-          <text x="300" y="225" fill="#cbd5e1" fontSize="15" textAnchor="middle">
-            Please select &quot;Replica&quot; with Confidence 5 to verify your attention.
+          <text x="300" y="210" fill="#fca5a5" fontSize="16" textAnchor="middle" fontWeight="bold">
+            Action Required: Select &quot;Replica&quot; and Confidence &quot;5&quot; below to proceed.
+          </text>
+          <text x="300" y="240" fill="#94a3b8" fontSize="13" textAnchor="middle">
+            (You cannot move forward until the required options are clicked)
           </text>
         </svg>
       );
