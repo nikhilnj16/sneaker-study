@@ -36,10 +36,10 @@ I implemented an **On-Demand Progressive Disclosure ("Upon Request")** workflow 
 - **Enabling Human-AI Complementarity:** In Assignment 2, the trained PyTorch model *SneakerAuthNet* achieved 81.5% accuracy with 37 errors caused by authentic factory quality control (QC) defects and flash glare. Direct exposure forces the performer to inherit all 37 AI errors. Requiring performers to inspect the photo first and click **`[ Consult AI Telemetry ]`** forces an initial visual hypothesis.
 - **Behavioral Interaction Logging:** The server logs whether the participant consulted the AI (`ai_consulted`) and the latency elapsed before consultation (`ai_consult_latency_ms`), capturing valuable telemetry on performer reliance.
 
-### 1.4 Description of Completed Bonus Steps
-- **Custom Web Interface (+10 Points):** Engineered and deployed an independent, full-stack Next.js 14 web application on Vercel with dedicated REST API endpoints (`/api/trials`, `/api/submit`, `/api/export`) rather than using third-party survey platforms like Qualtrics.
-- **Synchronous AI Telemetry Integration (+3 Points):** Built a live on-demand AI telemetry caliper component (`AiTelemetryCard.tsx`) providing calibrated probabilities, recommendation badges, and extracted physical measurements (stitch density, barcode sharpness, stroke thickness).
-- **Statistical Significance Testing (+2 Points):** Performed formal inferential statistical tests (Fisher's exact test, Chi-square with Yates' correction, Welch's two-sample t-test) comparing performance and reaction times across conditions.
+### 1.4 Implementation of Advanced Interface & Analysis Components
+- **Custom Web Application Interface:** Engineered and deployed an independent, full-stack Next.js 14 web application on Vercel with dedicated REST API endpoints (`/api/trials`, `/api/submit`, `/api/export`) rather than using third-party survey platforms like Qualtrics.
+- **Synchronous AI Telemetry Integration:** Built a live on-demand AI telemetry caliper component (`AiTelemetryCard.tsx`) providing calibrated probabilities, recommendation badges, and extracted physical measurements (stitch density, barcode sharpness, stroke thickness).
+- **Inferential Statistical Significance Testing:** Performed formal inferential statistical tests (Fisher's exact test, Chi-square with Yates' continuity correction, Welch's two-sample t-test) comparing performance and reaction times across conditions.
 
 ---
 
@@ -124,7 +124,7 @@ Without AI trials were completed 5.3 times faster (2.04 seconds) than With AI tr
 
 ---
 
-## 5. Statistical Significance Testing (+2 Bonus Points)
+## 5. Statistical Significance Testing
 
 To evaluate whether the observed experimental differences were statistically significant, inferential tests were conducted following standard HCI statistical practices.
 
@@ -188,11 +188,16 @@ The raw dataset file is included in the project directory:
 
 Columns: `session_id`, `participant_name`, `condition`, `trial_id`, `trial_index`, `sneaker_model`, `inspection_zone`, `ground_truth`, `ai_prediction`, `human_prediction`, `is_human_correct`, `confidence_rating`, `reaction_time_ms`, `ai_consulted`, `ai_consult_latency_ms`, `attention_check_passed`, `mental_demand`, `perceived_difficulty`, `participant_feedback`, `submitted_at`.
 
-### 7.2 Automated Replication Command
+### 7.2 Automated Replication Commands
 To replicate all performance metrics, confusion matrices, and statistical tests reported in this document:
 
 ```bash
 cd CSE594AS3
+
+# Option A: Run via Node.js
+node scripts/analyze_study_results.js
+
+# Option B: Run via Python
 python scripts/analyze_study_results.py
 ```
 

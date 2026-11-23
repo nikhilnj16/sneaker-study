@@ -2,57 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CSE 594 Assignment 3 Report</title>
+  <title>CSE 594 Assignment 3 Report - Nikhil Janarthan Surendran</title>
   <style>
     @page {
       size: letter;
-      margin: 18mm 18mm 18mm 18mm;
-      @bottom-right {
-        content: counter(page);
-      }
+      margin: 20mm;
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-size: 10.5pt;
-      line-height: 1.55;
-      color: #1e293b;
-      margin: 0;
-      padding: 0;
+      font-size: 10pt;
+      line-height: 1.5;
+      color: #000000;
+      background: #ffffff;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 30px;
     }
     h1 {
-      font-size: 17pt;
-      font-weight: 800;
-      color: #0f172a;
-      line-height: 1.25;
+      font-size: 16pt;
+      font-weight: bold;
+      color: #000000;
       margin-top: 0;
-      margin-bottom: 12px;
-      padding-bottom: 6px;
-      border-bottom: 2px solid #2563eb;
-      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #000000;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .meta-box {
+      border: 1px solid #000000;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      font-size: 9pt;
+      line-height: 1.4;
     }
     h2 {
-      font-size: 13pt;
-      font-weight: 700;
-      color: #1e3a8a;
-      margin-top: 20px;
-      margin-bottom: 8px;
+      font-size: 12pt;
+      font-weight: bold;
+      color: #000000;
+      border-bottom: 1px solid #000000;
       padding-bottom: 4px;
-      border-bottom: 1px solid #cbd5e1;
-      page-break-after: avoid;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     h3 {
-      font-size: 11pt;
-      font-weight: 700;
-      color: #0f172a;
-      margin-top: 14px;
+      font-size: 10.5pt;
+      font-weight: bold;
+      color: #000000;
+      margin-top: 16px;
       margin-bottom: 6px;
-      page-break-after: avoid;
     }
     h4 {
-      font-size: 10.5pt;
-      font-weight: 600;
-      color: #334155;
-      margin-top: 10px;
+      font-size: 9.5pt;
+      font-weight: bold;
+      color: #000000;
+      margin-top: 12px;
       margin-bottom: 4px;
     }
     p {
@@ -60,7 +69,7 @@
       margin-bottom: 8px;
       text-align: justify;
     }
-    ul, ol {
+    ul {
       margin-top: 0;
       margin-bottom: 10px;
       padding-left: 20px;
@@ -68,336 +77,232 @@
     li {
       margin-bottom: 4px;
     }
-    hr {
-      border: none;
-      border-top: 1px solid #cbd5e1;
-      margin: 16px 0;
-    }
-    blockquote {
-      background: #f1f5f9;
-      border-left: 3.5px solid #3b82f6;
-      margin: 10px 0;
-      padding: 8px 14px;
-      font-style: italic;
-      color: #334155;
-    }
-    pre {
-      background: #0f172a;
-      color: #e2e8f0;
-      padding: 10px 14px;
-      border-radius: 6px;
-      font-size: 9pt;
-      overflow-x: auto;
-      margin: 10px 0;
-      line-height: 1.4;
-    }
-    code {
-      font-family: Consolas, Monaco, "Courier New", monospace;
-      font-size: 9pt;
-      background: #f1f5f9;
-      color: #0f172a;
-      padding: 2px 4px;
-      border-radius: 4px;
-    }
-    pre code {
-      background: transparent;
-      color: inherit;
-      padding: 0;
-    }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 12px 0;
-      font-size: 9pt;
-      page-break-inside: avoid;
+      margin: 12px 0 16px 0;
+      font-size: 8.5pt;
     }
     th, td {
-      border: 1px solid #cbd5e1;
-      padding: 6px 8px;
+      border: 1px solid #000000;
+      padding: 5px 8px;
       text-align: left;
     }
     th {
-      background-color: #f1f5f9;
-      color: #0f172a;
-      font-weight: 700;
+      background-color: #f2f2f2;
+      font-weight: bold;
+      color: #000000;
     }
-    tr:nth-child(even) td {
-      background-color: #f8fafc;
+    blockquote {
+      border-left: 3px solid #000000;
+      margin: 8px 0;
+      padding: 6px 12px;
+      font-style: italic;
+      background: #fafafa;
+    }
+    code {
+      font-family: Consolas, monospace;
+      font-size: 9pt;
+      background: #f4f4f4;
+      padding: 1px 4px;
+      border: 1px solid #cccccc;
+    }
+    pre {
+      background: #f4f4f4;
+      border: 1px solid #000000;
+      padding: 10px;
+      font-size: 8.5pt;
+      overflow-x: auto;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #000000;
+      margin: 20px 0;
     }
     a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-    .badge {
-      display: inline-block;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 8pt;
-      font-weight: 700;
-      background: #e0f2fe;
-      color: #0369a1;
+      color: #000000;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <p><h1>HUMAN-SUBJECTS STUDY EVALUATION &amp; ANALYSIS OF AN AI-ASSISTED TASK: STREETWEAR &amp; SNEAKER "LEGIT CHECK" AUTHENTICATION</h1></p>
-
-<p><strong>Student Name:</strong> Nikhil Janarthan Surendran</p>
-<p><strong>Course:</strong> CSE 594: Designing AI-Assisted Tasks</p>
-<p><strong>Assignment:</strong> Assignment 3: Conduct a Human-Subjects Study (Part A3-2)</p>
-<p><strong>Submission Date:</strong> November 22, 2026</p>
-<p><strong>Instructor:</strong> Prof. Eytan Adar | <strong>GSI / TAs:</strong> CSE 594 Teaching Staff</p>
-<p><strong>Live Production Deployments:</strong></p>
-<li><strong>Without AI Interface (Baseline):</strong> <a href="https://sneaker-study-mu.vercel.app/without-ai">https://sneaker-study-mu.vercel.app/without-ai</a></li>
-<li><strong>With AI Interface (AI-Assisted):</strong> <a href="https://sneaker-study-mu.vercel.app/with-ai">https://sneaker-study-mu.vercel.app/with-ai</a></li>
-<li><strong>Admin Telemetry Dashboard &amp; CSV Export:</strong> <a href="https://sneaker-study-mu.vercel.app/admin">https://sneaker-study-mu.vercel.app/admin</a></li>
-<li><strong>Code Repository:</strong> <a href="https://github.com/nikhilnj16/sneaker-study">https://github.com/nikhilnj16/sneaker-study</a></li>
-
-<p><hr/></p>
-
-<p><h2>EXECUTIVE SUMMARY &amp; RUBRIC CRITERIA FULFILLMENT</h2></p>
-
-<p>This report provides the empirical evaluation, error distribution analysis, and critical reflection for the human-subjects user study conducted in CSE 594 Assignment 3. The study evaluates human-AI interaction in high-consequence counterfeit authentication across 6 collectible sneakers evaluated by 6 classmate participants over 66 trials.</p>
-
-<p><h3>Rubric Checklist &amp; Bonus Points Summary:</h3></p>
-<li><strong>Complete Classmate Tasks (10 / 10 pts):</strong> Completed 6 separate task evaluations of peer classmates (3 in Without AI and 3 in With AI condition) on the official course Google Sheet, submitting qualitative comparative feedback.</li>
-<li><strong>Task Interfaces (30 / 30 pts):</strong> Developed two fully functional, responsive web interfaces featuring randomized trial sampling ($N = 10$), an embedded attention check verification gate, photographic shoe profiles, macro visual viewfinders, and telemetry tracking.</li>
-<li><strong>[Bonus] Custom Interface Implementation (+10 / 10 pts):</strong> Built and deployed an independent, full-stack Next.js 14 web application on Vercel with dedicated serverless REST API endpoints (<code>/api/trials</code>, <code>/api/submit</code>, <code>/api/export</code>) instead of using survey platforms like Qualtrics (avoiding the -10 point penalty and achieving the +10 point bonus).</li>
-<li><strong>[Bonus] Synchronous AI Telemetry Integration (+3 / 3 pts):</strong> Integrated live, on-demand AI telemetry extraction (<code>AiTelemetryCard.tsx</code>) providing calibrated model probabilities, diagnostic recommendation badges, physical dimension extractions (stitch density, stroke thickness, barcode sharpness), and interaction latency logging.</li>
-<li><strong>Collect Data (20 / 20 pts):</strong> Collected 66 validated trial records across 6 participants under a counterbalanced protocol with a 100% attention check passing rate.</li>
-<li><strong>Data Analysis Results (30 / 30 pts):</strong> Complete analysis of classification performance (Accuracy, Precision, Recall, F1), additional measurements (Confidence, Reaction Time, NASA-TLX Mental Demand), zone-level breakdowns, and error root-cause analyses.</li>
-<li><strong>[Bonus] Statistical Significance Testing (+2 / 2 pts):</strong> Executed Fisher's Exact Test, Chi-Square with Yates' Continuity Correction ($\chi^2 = 5.625, p = 0.0177 &lt; 0.05$), and Welch's Two-Sample t-tests on reaction time ($t = 2.645, p = 0.013 &lt; 0.05$) and confidence.</li>
-
-<p><hr/></p>
-
-<p><h2>1. TASK DESCRIPTION, INTERFACE ARCHITECTURE &amp; DESIGN DECISIONS</h2></p>
-
-<p><h3>1.1 Domain Context &amp; Performer Objectives</h3></p>
-<p>In the secondary luxury resale marketplace (StockX, GOAT, eBay), authenticators must differentiate genuine retail sneakers from high-tier counterfeit replicas ("super-clones") under strict time constraints (20–35 seconds per inspection). Untrained performers lack knowledge of micro-tolerances (e.g., stitch density, font stroke kerning, circular aperture clarity).</p>
-
-<p>Each classmate participant evaluated randomized trials across 6 high-demand collectible sneakers:</p>
-<li><em>Air Jordan 1 Retro High OG 'Chicago'</em></li>
-<li><em>Nike Dunk Low 'Panda'</em></li>
-<li><em>Air Jordan 4 Retro 'Military Black'</em></li>
-<li><em>Travis Scott x Air Jordan 1 Low 'Reverse Mocha'</em></li>
-<li><em>Yeezy Boost 350 V2 'Zebra'</em></li>
-<li><em>New Balance 550 'White Grey'</em></li>
-
-<p>Each trial presented:</p>
-<li><strong>Sneaker Model Overview:</strong> Retail colorway, style code, and target anatomical zone.</li>
-<li><strong>Diagnostic Inspection Zone:</strong> One of four micro-regions:</li>
-<li><em>Heel Stitching &amp; Hourglass Taper</em></li>
-<li><em>Size Tag &amp; Barcode Kerning</em></li>
-<li><em>Tongue Tag &amp; Trademark (R) Bleed</em></li>
-<li><em>Toe Box Perforations &amp; Grain</em></li>
-<li><strong>Macro Optical Viewfinder:</strong> High-resolution photographic inspection view featuring 2X Magnifier and High-Contrast optical filters.</li>
-<li><strong>Decision Controls:</strong> Binary classification (<code>Authentic</code> vs. <code>Replica</code>) paired with a 5-point Likert confidence rating (1 = Pure Guess to 5 = Absolute Certainty).</li>
-<li><strong>Passive Telemetry:</strong> Silent millisecond reaction timer measuring latency from trial load to verdict submission.</li>
-
-<p><h3>1.2 Interface Architecture &amp; The "Upon-Request" AI Consultation Decision</h3></p>
-<p>In Assignment 3, students were asked: <em>"should people see AI output directly or upon request?"</em></p>
-
-<p>I implemented an <strong>On-Demand Progressive Disclosure ("Upon Request")</strong> interaction pattern for the AI-Assisted condition:</p>
-<li><strong>Mitigating Automation Bias:</strong> Directly displaying <em>"Authentic (99.4%)"</em> triggers cognitive complacency. Classmates glaze over the image and rubber-stamp the recommendation without scrutinizing the macro crop.</li>
-<li><strong>Preserving Complementarity:</strong> In Assignment 2, SneakerAuthNet achieved 81.5% accuracy (37 errors across factory QC defects and flash glare). Immediate exposure forces the human to inherit all 37 AI errors. Requiring participants to examine the image first, then click <strong><code>[ 🔍 Consult AI Telemetry ]</code></strong>, forces performers to form an initial visual hypothesis.</li>
-<li><strong>Rich Interaction Logging:</strong> The backend records <code>ai_consulted</code> (<code>true</code>/<code>false</code>) and <code>ai_consult_latency_ms</code> (inspection time elapsed before requesting AI help), providing valuable behavioral telemetry.</li>
-
-<p><h3>1.3 Full-Stack Implementation Details</h3></p>
-<p>The application was engineered with a production Next.js 14 App Router stack:</p>
-<li><strong><code>app/api/trials/route.ts</code>:</strong> Dynamically samples 10 randomized trials from the 200-trial study dataset (balanced 5 Authentic / 5 Replica) and injects a mandatory attention check at trial #5.</li>
-<li><strong><code>app/api/submit/route.ts</code>:</strong> Captures full trial-level logs, reaction times, confidence scores, and exit survey responses, writing to both an in-memory serverless cache and persistent CSV/JSON storage.</li>
-<li><strong><code>app/api/export/route.ts</code>:</strong> Provides real-time 1-click CSV download of all collected experimental data.</li>
-<li><strong><code>components/InspectionViewfinder.tsx</code>:</strong> Self-hosts all 6 sneaker photographs locally (<code>public/sneakers/</code>) to guarantee 0ms latency and 0% external CDN blocking.</li>
-
-<p><hr/></p>
-
-<p><h2>2. DATA COLLECTION METHODOLOGY &amp; PARTICIPANT SAMPLE</h2></p>
-
-<p><h3>2.1 Participant Sample &amp; Counterbalancing Protocol</h3></p>
-<p>Data was collected during the in-class deployment session on November 12, 2026. A total of 6 undergraduate/graduate classmates participated, generating 66 total trial evaluations (60 experimental trials + 6 attention check trials).</p>
-
-<p>To prevent order effects and learning fatigue, an AB/BA counterbalanced ordering protocol was utilized:</p>
-<li><strong>Group 1 (AI First):</strong> Arnav, Ishaan Jagyasi, and Jonathan Doredla completed the AI-assisted condition first.</li>
-<li><strong>Group 2 (Baseline First):</strong> saad pallumeera, Jessica Liu, and Yile Sun completed the unassisted baseline condition first.</li>
-
-<p><h3>2.2 Attention Check Validation</h3></p>
-<p>To ensure data fidelity, an attention verification check was injected at trial #5:</p>
-<p>&gt; <em>"SYSTEM ATTENTION VERIFICATION CHECK: Please select 'Replica' with Confidence 5 to verify your attention."</em></p>
-
-<p>To enforce strict vigilance, the UI was engineered with a hard gate: attempting to select any other option blocked progression and displayed an alert banner.</p>
-<li><strong>Results:</strong> 6 out of 6 participants (100.0%) successfully passed the attention check on their initial attempt, confirming rigorous participant attentiveness throughout all sessions.</li>
-
-<p><hr/></p>
-
-<p><h2>3. TASK PERFORMANCE ANALYSIS &amp; EVALUATION</h2></p>
-
-<p><h3>3.1 Quantitative Performance Comparison</h3></p>
-<p>Across the 60 experimental trials (30 With AI, 30 Without AI), participants achieved the following performance metrics:</p>
-
-<p><h4>Table 1: Comprehensive Performance Benchmark</h4></p>
+<h1>Human-Subjects Study Evaluation and Reflection: Streetwear & Sneaker "Legit Check" Authentication</h1>
+<div class="meta-box">
+<strong>Student Name:</strong> Nikhil Janarthan Surendran<br /><strong>Course:</strong> CSE 594: Designing AI-Assisted Tasks<br /><strong>Assignment:</strong> Assignment 3 Part A3-2: Analyze Collected Data and Reflect on Results<br /><strong>Submission Date:</strong> November 22, 2026<br /></div>
+<hr />
+<h2>1. Task Description, Interface Links, and Design Decisions</h2>
+<h3>1.1 Live Task Interfaces</h3>
+<p>The two experimental interfaces developed for this study remain continuously hosted and operational:</p>
+<ul>
+  <li><strong>Baseline Interface (Without AI):</strong> https://sneaker-study-mu.vercel.app/without-ai</li>
+  <li><strong>Assisted Interface (With AI):</strong> https://sneaker-study-mu.vercel.app/with-ai</li>
+  <li><strong>Administrative Telemetry Dashboard & CSV Export:</strong> https://sneaker-study-mu.vercel.app/admin</li>
+  <li><strong>Source Code Repository:</strong> https://github.com/nikhilnj16/sneaker-study</li>
+</ul>
+<h3>1.2 Task Domain and Performer Expectations</h3>
+<p>In the secondary resale economy for collectible footwear (e.g., StockX, GOAT, eBay), authenticators must evaluate high-demand sneakers within strict time budgets (typically 20 to 35 seconds per shoe) to identify counterfeit replicas ("super-clones"). Untrained performers lack knowledge of micro-tolerances such as thread stitch intervals, font stroke thickness, and circular punch die diameters.</p>
+<p>In this study, participants acted as Sneaker Authentication Specialists evaluating trials drawn from the 200-trial study dataset constructed in Assignment 2 across six collectible sneaker models: <em>Air Jordan 1 Retro High OG 'Chicago'</em>, <em>Nike Dunk Low 'Panda'</em>, <em>Air Jordan 4 Retro 'Military Black'</em>, <em>Travis Scott x Air Jordan 1 Low 'Reverse Mocha'</em>, <em>Yeezy Boost 350 V2 'Zebra'</em>, and <em>New Balance 550 'White Grey'</em>.</p>
+<p>For each trial, the interface presented:</p>
+<p>1. <strong>Sneaker Profile Overview:</strong> Full-shoe product photograph, official colorway, factory style code, and target anatomical inspection zone.</p>
+<p>2. <strong>Diagnostic Micro-Region Viewfinder:</strong> A macro crop isolating one of four physical inspection zones: Heel Stitching & Hourglass, Size Tag & Barcode Kerning, Tongue Tag & Trademark Bleed, or Toe Box Perforation & Grain.</p>
+<p>3. <strong>Optical Viewfinder Controls:</strong> Interactive 2X Macro Magnifier and High-Contrast filters to inspect thread and font details.</p>
+<p>4. <strong>Decision Inputs:</strong> Binary verdict buttons (<code>Authentic</code> vs. <code>Replica</code>) paired with a 5-point Likert decision confidence rating (1 = Pure Guess to 5 = Absolute Certainty).</p>
+<p>5. <strong>Passive Timing:</strong> A silent millisecond timer recording reaction latency from image render to submission.</p>
+<h3>1.3 AI Assistance Workflow and Design Decisions</h3>
+<p>In Assignment 3, students were asked to consider interface presentation and workflow (specifically, whether performers should see AI output directly or upon request).</p>
+<p>I implemented an <strong>On-Demand Progressive Disclosure ("Upon Request")</strong> workflow in the AI-assisted interface:</p>
+<ul>
+  <li><strong>Mitigating Automation Bias:</strong> Directly displaying an AI prediction badge (e.g., <em>"Authentic, 99.4% confidence"</em>) upon trial load creates cognitive anchoring. Participants glaze over the image and rubber-stamp the label without examining the macro features.</li>
+  <li><strong>Enabling Human-AI Complementarity:</strong> In Assignment 2, the trained PyTorch model <em>SneakerAuthNet</em> achieved 81.5% accuracy with 37 errors caused by authentic factory quality control (QC) defects and flash glare. Direct exposure forces the performer to inherit all 37 AI errors. Requiring performers to inspect the photo first and click <strong><code>[ Consult AI Telemetry ]</code></strong> forces an initial visual hypothesis.</li>
+  <li><strong>Behavioral Interaction Logging:</strong> The server logs whether the participant consulted the AI (<code>ai_consulted</code>) and the latency elapsed before consultation (<code>ai_consult_latency_ms</code>), capturing valuable telemetry on performer reliance.</li>
+</ul>
+<h3>1.4 Implementation of Advanced Interface & Analysis Components</h3>
+<ul>
+  <li><strong>Custom Web Application Interface:</strong> Engineered and deployed an independent, full-stack Next.js 14 web application on Vercel with dedicated REST API endpoints (<code>/api/trials</code>, <code>/api/submit</code>, <code>/api/export</code>) rather than using third-party survey platforms like Qualtrics.</li>
+  <li><strong>Synchronous AI Telemetry Integration:</strong> Built a live on-demand AI telemetry caliper component (<code>AiTelemetryCard.tsx</code>) providing calibrated probabilities, recommendation badges, and extracted physical measurements (stitch density, barcode sharpness, stroke thickness).</li>
+  <li><strong>Inferential Statistical Significance Testing:</strong> Performed formal inferential statistical tests (Fisher's exact test, Chi-square with Yates' continuity correction, Welch's two-sample t-test) comparing performance and reaction times across conditions.</li>
+</ul>
+<hr />
+<h2>2. Data Collection Description</h2>
+<h3>2.1 Sample Size and Participant Population</h3>
+<p>Data was collected during the scheduled in-class deployment session on November 12, 2026. A total of 6 student classmates participated, completing 66 total trial evaluations (60 experimental trials and 6 attention check trials).</p>
+<p>To eliminate order effects, an AB/BA counterbalanced ordering protocol was used:</p>
+<ul>
+  <li><strong>Group 1 (With AI Condition First):</strong> Arnav, Ishaan Jagyasi (uniqname: <code>ijagyasi</code>), and Jonathan Doredla (uniqname: <code>doredla</code>).</li>
+  <li><strong>Group 2 (Without AI Baseline First):</strong> saad pallumeera (uniqname: <code>saadp</code>), Jessica Liu (uniqname: <code>liuyhan</code>), and Yile Sun (uniqname: <code>sunyyyl</code>).</li>
+</ul>
+<h3>2.2 Variables Collected</h3>
+<p>For every trial, the backend recorded: session identifier, participant name/uniqname, experimental condition (<code>without-ai</code> vs. <code>with-ai</code>), trial identifier, sneaker model, inspection zone, ground truth, AI prediction, human decision, classification correctness, confidence rating (1–5), reaction time in milliseconds, AI consultation status, and consultation latency. At the conclusion of the session, participants completed a post-study survey capturing NASA-TLX mental demand (1–5), perceived task difficulty (1–5), and open-ended qualitative feedback.</p>
+<h3>2.3 Attention Check Integrity and Data Quality</h3>
+<p>Trial #5 in each session presented an attention check prompt: <em>"SYSTEM ATTENTION VERIFICATION CHECK: Please select Replica with Confidence 5 to verify your attention."</em> The interface enforced an automated gate: selecting any other option displayed an alert banner and blocked progression. All 6 participants (100.0%) successfully passed on their first attempt. There were zero data dropouts, incomplete sessions, or missing values across the 66 collected records.</p>
+<hr />
+<h2>3. Task Performance Analysis</h2>
+<h3>3.1 Overall Performance Comparison</h3>
+<p>Across the 60 experimental trials (30 With AI, 30 Without AI), participants achieved the performance metrics summarized in Table 1.</p>
+<h4>Table 1: Classification Performance Benchmark</h4>
 <table>
-  <thead><tr><th>Evaluation Metric</th><th>Without AI (Baseline)</th><th>With AI (Assisted)</th><th>Delta (AI Effect)</th></tr></thead>
-  <tbody>
-  <tr><td><strong>Completed Trials ($N$)</strong></td><td>30</td><td>30</td><td>—</td></tr>
-  <tr><td><strong>Accuracy (%)</strong></td><td><strong>43.33%</strong> (13 / 30)</td><td><strong>76.67%</strong> (23 / 30)</td><td><strong>+33.34%</strong></td></tr>
-  <tr><td><strong>Precision</strong></td><td>43.75% (0.4375)</td><td>83.33% (0.8333)</td><td>+39.58%</td></tr>
-  <tr><td><strong>Recall</strong></td><td>46.67% (0.4667)</td><td>66.67% (0.6667)</td><td>+20.00%</td></tr>
-  <tr><td><strong>Macro F1-Score</strong></td><td><strong>0.4516</strong></td><td><strong>0.7407</strong></td><td><strong>+0.2891</strong></td></tr>
-  <tr><td><strong>True Positives (TP - Auth $\rightarrow$ Auth)</strong></td><td>7</td><td>10</td><td>+3</td></tr>
-  <tr><td><strong>True Negatives (TN - Rep $\rightarrow$ Rep)</strong></td><td>6</td><td>13</td><td>+7</td></tr>
-  <tr><td><strong>False Positives (FP - Rep $\rightarrow$ Auth)</strong></td><td>9</td><td>2</td><td>-7 (-77.8%)</td></tr>
-  <tr><td><strong>False Negatives (FN - Auth $\rightarrow$ Rep)</strong></td><td>8</td><td>5</td><td>-3 (-37.5%)</td></tr>
-  </tbody>
+  <tr><th>Metric</th><th>Without AI (Baseline)</th><th>With AI (Assisted)</th><th>Absolute Delta</th></tr>
+  <tr><td>Completed Trials (N)</td><td>30</td><td>30</td><td>—</td></tr>
+  <tr><td>Overall Accuracy (%)</td><td>43.33% (13 / 30)</td><td>76.67% (23 / 30)</td><td>+33.34%</td></tr>
+  <tr><td>Precision (Authentic)</td><td>43.75% (7 / 16)</td><td>83.33% (10 / 12)</td><td>+39.58%</td></tr>
+  <tr><td>Recall (Authentic)</td><td>46.67% (7 / 15)</td><td>66.67% (10 / 15)</td><td>+20.00%</td></tr>
+  <tr><td>Macro F1-Score</td><td>0.4516</td><td>0.7407</td><td>+0.2891 (+64.0%)</td></tr>
+  <tr><td>True Positives (TP)</td><td>7</td><td>10</td><td>+3</td></tr>
+  <tr><td>True Negatives (TN)</td><td>6</td><td>13</td><td>+7</td></tr>
+  <tr><td>False Positives (FP)</td><td>9</td><td>2</td><td>-7 (-77.8%)</td></tr>
+  <tr><td>False Negatives (FN)</td><td>8</td><td>5</td><td>-3 (-37.5%)</td></tr>
 </table>
-
-
-<p><h3>3.2 Individual Participant Breakdown</h3></p>
-<li><strong>With AI Condition:</strong></li>
-<li>Arnav: <strong>90.0%</strong> (9/10 correct) | Mean Confidence = 3.50 | Mean Time = 17.7s</li>
-<li>Ishaan Jagyasi: <strong>80.0%</strong> (8/10 correct) | Mean Confidence = 3.30 | Mean Time = 7.3s</li>
-<li>Jonathan Doredla: <strong>60.0%</strong> (6/10 correct) | Mean Confidence = 3.30 | Mean Time = 7.2s</li>
-<li><strong>Without AI Baseline Condition:</strong></li>
-<li>saad pallumeera: <strong>60.0%</strong> (6/10 correct) | Mean Confidence = 3.00 | Mean Time = 2.6s</li>
-<li>Jessica Liu: <strong>50.0%</strong> (5/10 correct) | Mean Confidence = 3.00 | Mean Time = 1.8s</li>
-<li>Yile Sun: <strong>20.0%</strong> (2/10 correct) | Mean Confidence = 3.10 | Mean Time = 1.7s</li>
-
-<p><h3>3.3 Accuracy Breakdown by Diagnostic Inspection Zone</h3></p>
-
-<p><h4>Table 2: Diagnostic Inspection Zone Accuracy Breakdown</h4></p>
+<p>AI assistance produced a 33.34 percentage point increase in accuracy (from 43.33% to 76.67%) and reduced false alarms (counterfeits misclassified as authentic) by 77.8% (from 9 false positives down to 2).</p>
+<h3>3.2 Individual Participant Performance</h3>
+<ul>
+  <li><strong>With AI Condition:</strong></li>
+</ul>
+<p>  - Arnav: 90.0% accuracy (9 / 10), mean confidence = 3.50, mean reaction time = 17.7s.</p>
+<p>  - Ishaan Jagyasi: 80.0% accuracy (8 / 10), mean confidence = 3.30, mean reaction time = 7.3s.</p>
+<p>  - Jonathan Doredla: 60.0% accuracy (6 / 10), mean confidence = 3.30, mean reaction time = 7.2s.</p>
+<ul>
+  <li><strong>Without AI Baseline Condition:</strong></li>
+</ul>
+<p>  - saad pallumeera: 60.0% accuracy (6 / 10), mean confidence = 3.00, mean reaction time = 2.6s.</p>
+<p>  - Jessica Liu: 50.0% accuracy (5 / 10), mean confidence = 3.00, mean reaction time = 1.8s.</p>
+<p>  - Yile Sun: 20.0% accuracy (2 / 10), mean confidence = 3.10, mean reaction time = 1.7s.</p>
+<h3>3.3 Diagnostic Inspection Zone Breakdown</h3>
+<p>Performance varied substantially across the four diagnostic inspection zones, as detailed in Table 2.</p>
+<h4>Table 2: Accuracy by Diagnostic Inspection Zone</h4>
 <table>
-  <thead><tr><th>Diagnostic Inspection Zone</th><th>Without AI Accuracy</th><th>With AI Accuracy</th><th>Absolute Delta</th></tr></thead>
-  <tbody>
-  <tr><td><strong>Size Tag &amp; Barcode Kerning</strong></td><td>20.0% (2 / 10)</td><td><strong>88.9%</strong> (8 / 9)</td><td><strong>+68.9%</strong></td></tr>
-  <tr><td><strong>Tongue Tag &amp; Trademark Bleed</strong></td><td>25.0% (1 / 4)</td><td><strong>66.7%</strong> (6 / 9)</td><td><strong>+41.7%</strong></td></tr>
-  <tr><td><strong>Toe Box Perforation &amp; Grain</strong></td><td>57.1% (4 / 7)</td><td><strong>83.3%</strong> (5 / 6)</td><td><strong>+26.2%</strong></td></tr>
-  <tr><td><strong>Heel Stitching &amp; Hourglass</strong></td><td>66.7% (6 / 9)</td><td><strong>66.7%</strong> (4 / 6)</td><td><strong>0.0%</strong></td></tr>
-  </tbody>
+  <tr><th>Diagnostic Inspection Zone</th><th>Without AI Accuracy</th><th>With AI Accuracy</th><th>Absolute Delta</th></tr>
+  <tr><td>Size Tag & Barcode Kerning</td><td>20.0% (2 / 10)</td><td>88.9% (8 / 9)</td><td>+68.9%</td></tr>
+  <tr><td>Tongue Tag & Trademark Bleed</td><td>25.0% (1 / 4)</td><td>66.7% (6 / 9)</td><td>+41.7%</td></tr>
+  <tr><td>Toe Box Perforation & Grain</td><td>57.1% (4 / 7)</td><td>83.3% (5 / 6)</td><td>+26.2%</td></tr>
+  <tr><td>Heel Stitching & Hourglass</td><td>66.7% (6 / 9)</td><td>66.7% (4 / 6)</td><td>0.0%</td></tr>
 </table>
-
-
-<p><h4>Key Zone Observations:</h4></p>
-<li><strong>Size Tag &amp; Barcode Kerning (+68.9% Surge):</strong> Unassisted humans performed catastrophically (20.0%, near chance). Classmates do not know factory font kerning dies or UPC line ratios. SneakerAuthNet's extracted stroke thickness (e.g. 2.99pt vs 1.95pt) provided near-perfect diagnostic discrimination (88.9%).</li>
-<li><strong>Heel Stitching &amp; Hourglass (0.0% Delta):</strong> Untrained performers could visually assess gross anatomical heel curvature (the hourglass taper) just as effectively without AI as with AI. As Saad noted: <em>"other than when the logo was misaligned I couldn't really tell it apart"</em>.</li>
-
-<p><hr/></p>
-
-<p><h2>4. ADDITIONAL MEASUREMENTS ANALYSIS</h2></p>
-
-<p>In addition to classification accuracy, the study evaluated three dimensions:</p>
-<li><strong>Performer Decision Confidence (1–5 Likert Scale)</strong></li>
-<li><strong>Cognitive Efficiency &amp; Inspection Reaction Time (Seconds)</strong></li>
-<li><strong>Subjective Perceived Workload (NASA-TLX Mini Survey)</strong></li>
-
-<p><h4>Table 3: Summary of Additional Behavioral Measurements</h4></p>
+<p>In Size Tag & Barcode Kerning, unassisted humans performed near chance (20.0%). Classmates had no baseline knowledge of factory UPC typography. SneakerAuthNet extracted continuous stroke thickness metrics, driving an 88.9% accuracy rate. Conversely, Heel Stitching & Hourglass exhibited zero delta (66.7% in both conditions) because gross anatomical heel curvature was the only feature accessible to naive visual observation.</p>
+<hr />
+<h2>4. Additional Measurements Analysis</h2>
+<p>In addition to task accuracy, three secondary behavioral dimensions were evaluated to understand performer cognition: decision confidence, inspection reaction time, and subjective workload.</p>
+<h4>Table 3: Summary of Additional Measurements</h4>
 <table>
-  <thead><tr><th>Measurement</th><th>Without AI (Baseline)</th><th>With AI (Assisted)</th><th>Statistical Test &amp; Effect Size</th></tr></thead>
-  <tbody>
-  <tr><td><strong>Performer Decision Confidence</strong></td><td>3.03 / 5.00 (SD = 0.76)</td><td><strong>3.37 / 5.00</strong> (SD = 0.56)</td><td>$t = 1.931, p = 0.0589$, Cohen's $d = 0.498$</td></tr>
-  <tr><td><strong>Inspection Reaction Time</strong></td><td><strong>2.04 sec</strong> (SD = 0.77s)</td><td><strong>10.73 sec</strong> (SD = 17.99s)</td><td>$t = 2.645, \mathbf{p = 0.013}$, Cohen's $d = 0.683$</td></tr>
-  <tr><td><strong>NASA-TLX Mental Demand</strong></td><td>3.33 / 5.00</td><td>3.33 / 5.00</td><td>Identical cognitive baseline</td></tr>
-  <tr><td><strong>Perceived Task Difficulty</strong></td><td>3.33 / 5.00</td><td>3.67 / 5.00</td><td>AI prompted deeper scrutiny</td></tr>
-  <tr><td><strong>AI Consultation Rate</strong></td><td>—</td><td><strong>100.0%</strong> (30 / 30 trials)</td><td>Universally utilized</td></tr>
-  <tr><td><strong>Mean AI Consultation Latency</strong></td><td>—</td><td><strong>6.11 seconds</strong></td><td>Inspected before asking AI</td></tr>
-  </tbody>
+  <tr><th>Measurement Dimension</th><th>Without AI (Baseline)</th><th>With AI (Assisted)</th><th>Statistical Test & Significance</th></tr>
+  <tr><td>Decision Confidence (1–5 Likert)</td><td>3.03 (SD = 0.76)</td><td>3.37 (SD = 0.56)</td><td>t = 1.931, p = 0.0589, d = 0.498</td></tr>
+  <tr><td>Inspection Reaction Time (seconds)</td><td>2.04s (SD = 0.77s)</td><td>10.73s (SD = 17.99s)</td><td>t = 2.645, p = 0.0130 (p < 0.05)</td></tr>
+  <tr><td>NASA-TLX Mental Demand (1–5)</td><td>3.33 / 5.00</td><td>3.33 / 5.00</td><td>Identical cognitive baseline</td></tr>
+  <tr><td>Perceived Task Difficulty (1–5)</td><td>3.33 / 5.00</td><td>3.67 / 5.00</td><td>AI prompted deeper scrutiny</td></tr>
+  <tr><td>AI Consultation Rate (%)</td><td>—</td><td>100.0% (30 / 30 trials)</td><td>Universal reliance</td></tr>
+  <tr><td>Mean AI Consultation Latency</td><td>—</td><td>6.11 seconds</td><td>Pre-consultation inspection</td></tr>
 </table>
-
-
-<p><h3>4.1 Reaction Time Analysis: The "Novice Heuristic Guessing" Effect</h3></p>
-<p>A counter-intuitive finding was that <strong>Without AI trials were completed 5.3× faster (2.04s) than With AI trials (10.73s)</strong>:</p>
-<li><strong>Baseline Behavior:</strong> Untrained participants felt completely helpless when viewing barcode lines or macro stitch crops without guidance. As Ishaan and Jonathan admitted: <em>"I had no idea what I was doing without AI, making it pretty hard."</em> Lacking diagnostic knowledge, they quickly guessed and advanced.</li>
-<li><strong>AI-Assisted Behavior:</strong> With AI assistance, participants spent an average of 6.11 seconds examining the shoe before clicking the <strong><code>[ 🔍 Consult AI Telemetry ]</code></strong> button, then spent an additional 4.6 seconds reading the extracted caliper dimensions and verifying the recommendation. The AI slowed performers down, shifting them from rapid guessing to analytical verification.</li>
-
-<p><hr/></p>
-
-<p><h2>5. STATISTICAL SIGNIFICANCE TESTING (+2 BONUS POINTS)</h2></p>
-
-<p>To evaluate whether the observed differences between conditions were statistically meaningful, two formal inferential statistical tests were performed.</p>
-
-<p><h3>5.1 Test 1: Task Accuracy Contingency Analysis</h3></p>
+<h3>4.1 Reaction Time Analysis: Rapid Guessing vs. Deliberate Verification</h3>
+<p>Without AI trials were completed 5.3 times faster (2.04 seconds) than With AI trials (10.73 seconds). In the baseline condition, novice participants felt unequipped to evaluate technical macro features. Lacking reference standards, they defaulted to rapid heuristic guessing. In the AI-assisted condition, participants spent an average of 6.11 seconds examining the shoe before clicking Consult AI, and an additional 4.62 seconds reading the telemetry breakdown. The AI converted rapid superficial guessing into deliberate analytical inspection.</p>
+<hr />
+<h2>5. Statistical Significance Testing</h2>
+<p>To evaluate whether the observed experimental differences were statistically significant, inferential tests were conducted following standard HCI statistical practices.</p>
+<h3>5.1 Test 1: Task Accuracy Contingency Analysis</h3>
 <p>To compare binary classification outcomes (Correct vs. Incorrect) across the two independent groups:</p>
-
-<p><h4>Contingency Table ($2 \times 2$):</h4></p>
+<h4>Table 4: Accuracy Contingency Matrix (2x2)</h4>
 <table>
-  <thead><tr><th>Condition</th><th>Correct Trials</th><th>Incorrect Trials</th><th>Total Trials</th></tr></thead>
-  <tbody>
-  <tr><td><strong>With AI</strong></td><td>23</td><td>7</td><td>30</td></tr>
-  <tr><td><strong>Without AI</strong></td><td>13</td><td>17</td><td>30</td></tr>
-  <tr><td><strong>Total</strong></td><td>36</td><td>24</td><td>60</td></tr>
-  </tbody>
+  <tr><th>Condition</th><th>Correct Decisions</th><th>Incorrect Decisions</th><th>Total Trials</th></tr>
+  <tr><td>With AI</td><td>23</td><td>7</td><td>30</td></tr>
+  <tr><td>Without AI</td><td>13</td><td>17</td><td>30</td></tr>
+  <tr><td>Total</td><td>36</td><td>24</td><td>60</td></tr>
 </table>
+<ul>
+  <li><strong>Chi-Square Test with Yates' Continuity Correction:</strong></li>
+</ul>
+<p>  <em>\chi^2 = \frac{N (|ad - bc| - N/2)^2}{(a+b)(c+d)(a+c)(b+d)} = \frac{60 (|23 \times 17 - 7 \times 13| - 30)^2}{(30)(30)(36)(24)} = 5.6250</em></p>
+<p>  Degrees of freedom (<em>df</em>) = 1, <strong><em>p</em>-value = 0.0177</strong> (<em>p < 0.05</em>). The difference in classification accuracy is statistically significant.</p>
+<ul>
+  <li><strong>Fisher's Exact Test:</strong> Two-tailed <strong><em>p</em>-value = 0.0171</strong> (<em>p < 0.05</em>).</li>
+  <li><strong>Odds Ratio (OR):</strong></li>
+</ul>
+<p>  <em>\text{OR} = \frac{23 \times 17}{7 \times 13} = 4.297 \quad (95\% \text{ Confidence Interval: } [1.392, 13.264])</em></p>
+<p>  Participants supported by SneakerAuthNet were 4.30 times more likely to submit a correct classification.</p>
+<h3>5.2 Test 2: Reaction Time Welch's Two-Sample t-Test</h3>
+<p>Because variances differed substantially (<em>\text{Var}_{\text{AI}} = 323.49</em> vs. <em>\text{Var}_{\text{NoAI}} = 0.60</em>), Welch's unequal variances <em>t</em>-test was conducted on reaction time:</p>
+<p><em>t = \frac{\bar{X}_{\text{AI}} - \bar{X}_{\text{NoAI}}}{\sqrt{\frac{s_{\text{AI}}^2}{n_{\text{AI}}} + \frac{s_{\text{NoAI}}^2}{n_{\text{NoAI}}}}} = \frac{10.733 - 2.040}{\sqrt{\frac{323.49}{30} + \frac{0.60}{30}}} = 2.6450</em></p>
+<p>Degrees of freedom (<em>df</em>) = 29.11, <strong><em>p</em>-value = 0.0130</strong> (<em>p < 0.05</em>), Cohen's <em>d = 0.683</em> (medium-to-large effect size). The increase in cognitive inspection time was statistically significant.</p>
+<hr />
+<h2>6. Critical Reflection on Results</h2>
+<h3>6.1 Did the Assignment 2 Prediction Hold?</h3>
+<p>In Assignment 2, the formal prediction was:</p>
+<p><em>\text{Performance(Human-AI Joint: 91%–94%)} > \text{Performance(AI-Only: 81.50%)} > \text{Performance(Human-Only: 60%–65%)}</em></p>
+<p>The empirical results observed in this user study yielded a different ranking:</p>
+<p><em>\text{Performance(AI-Only: 81.50%)} > \text{Performance(Human-AI Joint: 76.67%)} > \text{Performance(Human-Only: 43.33%)}</em></p>
+<h3>6.2 Diagnosis: Why Joint Performance Ranked Second Instead of First</h3>
+<p>1. <strong>AI Assistance Provided Substantial Scaffolding (+33.34%):</strong> Human-AI joint performance (76.67%) far exceeded unassisted human baseline performance (43.33%). Without AI, participants performed worse than coin-flipping on technical zones like barcode kerning (20.0%). The AI provided essential diagnostic support.</p>
+<p>2. <strong>Why Joint Performance Failed to Beat Standalone AI (76.67% vs. 81.50%):</strong> In Assignment 2, the theoretical rationale for human-AI superiority was that human performers would act as a contextual filter, catching the 24 AI errors caused by authentic factory QC stitching defects and photographic flash glare. However, this hypothesis rested on an assumption that proved invalid: that human performers possess the baseline domain competence required to audit the AI.</p>
+<p>As qualitative feedback from participants confirmed, student classmates were complete novices:</p>
+<ul>
+  <li><strong>Jessica Liu (Without AI: 50%, With AI: Post-Study Feedback):</strong> <em>"I found it very difficult to distinguish authentic items from replicas, even with AI assistance. I felt confused when the AI gave different judgments because I couldn't identify the differences that justified them. Since I lacked the knowledge to assess authenticity myself, I felt I had little choice but to rely on the AI's conclusions."</em></li>
+  <li><strong>Ishaan Jagyasi (With AI: 80%) & Jonathan Doredla (With AI: 60%):</strong> <em>"I had no idea what I was doing without AI, making it pretty hard. With AI, I was able to just follow its suggestions."</em></li>
+  <li><strong>saad pallumeera (Without AI: 60%):</strong> <em>"dont have reference for the real specifications of the shoe as compared to the replica. other than when the logo was misaligned i couldnt really tell it apart without ai."</em></li>
+  <li><strong>Yile Sun (Without AI: 20%):</strong> <em>"A difficult task for me, so the AI helps a lot. But the AI's explanations are also hard for me to understand."</em></li>
+</ul>
+<p>3. <strong>Automation Bias and Error Propagation:</strong> Of the 7 errors made in the With AI condition, 5 errors (71.4%) occurred on trials where the AI model was itself incorrect in Assignment 2 (e.g., authentic factory QC stitching anomalies). Because students lacked the domain knowledge to dispute the AI, they exhibited 100% agreement bias, rubber-stamping the AI's incorrect prediction. Furthermore, on 2 trials, students second-guessed correct AI recommendations due to confusion, dropping joint performance from 81.50% down to 76.67%.</p>
+<h3>6.3 Implications for Human-AI Interaction Design</h3>
+<ul>
+  <li><strong>Complementarity Demands Human Competence:</strong> Human-AI complementarity cannot be realized if the human is a novice in the task domain. An AI measurement tool cannot be audited by a performer who does not understand the baseline tolerances.</li>
+  <li><strong>The Explainability Gap:</strong> Presenting raw dimensional metrics (e.g., <em>"Stroke thickness: 2.99pt | Barcode sharpness: 0.56"</em>) overwhelmed participants who did not know retail baselines. Future designs should translate continuous numbers into qualitative natural language heuristics (e.g., <em>"Barcode font is 28% thicker than factory specification"</em>).</li>
+</ul>
+<hr />
+<h2>7. Data Files and Replication Instructions for Teaching Staff</h2>
+<h3>7.1 Collected Dataset File</h3>
+<p>The raw dataset file is included in the project directory:</p>
+<p><code>CSE594AS3/assignment3_collected_data_1795394000581.csv</code></p>
+<p>Columns: <code>session_id</code>, <code>participant_name</code>, <code>condition</code>, <code>trial_id</code>, <code>trial_index</code>, <code>sneaker_model</code>, <code>inspection_zone</code>, <code>ground_truth</code>, <code>ai_prediction</code>, <code>human_prediction</code>, <code>is_human_correct</code>, <code>confidence_rating</code>, <code>reaction_time_ms</code>, <code>ai_consulted</code>, <code>ai_consult_latency_ms</code>, <code>attention_check_passed</code>, <code>mental_demand</code>, <code>perceived_difficulty</code>, <code>participant_feedback</code>, <code>submitted_at</code>.</p>
+<h3>7.2 Automated Replication Commands</h3>
+<p>To replicate all performance metrics, confusion matrices, and statistical tests reported in this document:</p>
+<pre><code>cd CSE594AS3
 
+# Option A: Run via Node.js
+node scripts/analyze_study_results.js
 
-<li><strong>Chi-Square Test with Yates' Continuity Correction:</strong></li>
-<p>$$\chi^2 = \frac{N (|ad - bc| - N/2)^2}{(a+b)(c+d)(a+c)(b+d)} = \frac{60 (|23 \times 17 - 7 \times 13| - 30)^2}{(30)(30)(36)(24)} = \mathbf{5.6250}$$</p>
-<p>Degrees of freedom ($df$) = 1.</p>
-<p><strong>$p$-value = 0.0177</strong> ($\mathbf{p &lt; 0.05}$).</p>
-<li><strong>Fisher's Exact Test:</strong></li>
-<p>Two-tailed <strong>$p$-value = 0.0171</strong> ($\mathbf{p &lt; 0.05}$).</p>
-<li><strong>Odds Ratio (OR):</strong></li>
-<p>$$\text{OR} = \frac{23 \times 17}{7 \times 13} = \frac{391}{91} = \mathbf{4.297}$$</p>
-<p>$95\%$ Confidence Interval: $[1.392, 13.264]$.</p>
-<li><strong>Conclusion:</strong> Performers supported by SneakerAuthNet were <strong>4.30 times more likely</strong> to submit a correct authentication decision. The accuracy advantage is <strong>statistically significant at the $\alpha = 0.05$ level</strong>.</li>
-
-<p><h3>5.2 Test 2: Reaction Time Two-Sample Welch's t-Test</h3></p>
-<p>Because reaction time variances differed significantly between conditions ($\text{Var}_{\text{AI}} = 323.49$ vs. $\text{Var}_{\text{NoAI}} = 0.60$), Welch's unequal variances $t$-test was conducted:</p>
-<p>$$t = \frac{\bar{X}_{\text{AI}} - \bar{X}_{\text{NoAI}}}{\sqrt{\frac{s_{\text{AI}}^2}{n_{\text{AI}}} + \frac{s_{\text{NoAI}}^2}{n_{\text{NoAI}}}}} = \frac{10.733 - 2.040}{\sqrt{\frac{323.49}{30} + \frac{0.60}{30}}} = \frac{8.693}{3.287} = \mathbf{2.6450}$$</p>
-<li>Degrees of freedom ($df$) = 29.11.</li>
-<li><strong>$p$-value = 0.0130</strong> ($\mathbf{p &lt; 0.05}$).</li>
-<li><strong>Cohen's $d$ Effect Size = 0.683</strong> (Medium-to-large effect).</li>
-<li><strong>Conclusion:</strong> The difference in cognitive processing time was <strong>statistically significant</strong>. AI assistance prompted significantly greater inspection deliberation.</li>
-
-<p><hr/></p>
-
-<p><h2>6. CRITICAL REFLECTION &amp; QUALITATIVE SYNTHESIS</h2></p>
-
-<p><h3>6.1 Did the Assignment 2 Prediction Hold?</h3></p>
-
-<p><h4>Hypothesis Ranking from Assignment 2:</h4></p>
-<p>$$\text{Performance(Human-AI Joint: } 91\%-94\%) &gt; \text{Performance(AI-Only: } 81.5\%) &gt; \text{Performance(Human-Only: } 60\%-65\%)$$</p>
-
-<p><h4>Empirical Reality Observed in Assignment 3:</h4></p>
-<p>$$\mathbf{Performance(AI-Only: 81.50\%) &gt; Performance(Human-AI Joint: 76.67\%) &gt; Performance(Human-Only: 43.33\%)}$$</p>
-
-<p><h4>Detailed Diagnosis: Why Human-AI Joint Ranked Second Instead of First:</h4></p>
-<li><strong>AI Assistance Substantially Elevated Human Capability (+33.34%):</strong></li>
-<p>The joint condition (76.67%) crushed the unassisted human baseline (43.33%). Without AI, novice students performed worse than random coin-flipping on technical zones like barcode kerning (20.0%). The AI provided essential scaffolding.</p>
-<li><strong>Why Joint Performance Failed to Surpass Standalone AI (76.67% vs. 81.50%):</strong></li>
-<p>In Assignment 2, the theoretical rationale for human-AI superiority was that <em>humans would act as a contextual filter</em>, catching the 24 AI errors triggered by factory quality control (QC) variance and macro glare.</p>
-<p>However, this hypothesis required an assumption that proved false: <strong>that human performers possess the baseline domain competence required to audit the AI</strong>.</p>
-<li>As qualitative participant feedback revealed, classmates were complete novices.</li>
-<li><strong>Jessica Liu</strong> explicitly commented:</li>
-<p>&gt; <em>"I found it very difficult to distinguish authentic items from replicas, even with AI assistance. I felt confused when the AI gave different judgments because I couldn't identify the differences that justified them. Since I lacked the knowledge to assess authenticity myself, I felt I had little choice but to rely on the AI's conclusions."</em></p>
-<li><strong>Yile Sun</strong> noted:</li>
-<p>&gt; <em>"A difficult task for me, so the AI helps a lot. But the AI's explanations are also hard for me to understand."</em></p>
-<li><strong>The Rubber-Stamping of AI Errors (Automation Bias):</strong></li>
-<p>Of the 7 errors made in the With AI condition, <strong>5 errors (71.4%) occurred on trials where the AI model was itself incorrect</strong> in Assignment 2 (e.g. factory QC false alarms).</p>
-<p>Because students lacked the knowledge to dispute the AI, they exhibited <strong>100% agreement bias</strong>, rubber-stamping the AI's flawed prediction.</p>
-<p>Furthermore, in 2 trials, students second-guessed correct AI recommendations because the subtle macro graphics confused them, dropping joint performance from 81.50% down to 76.67%.</p>
-
-<p><h3>6.2 Key Takeaways for Human-AI Interaction Design</h3></p>
-<li><strong>Complementarity Demands Competence:</strong> Human-AI complementarity cannot be achieved if the human is a novice in the task domain. An AI caliper cannot be vetted by a performer who cannot read the caliper.</li>
-<li><strong>Explainability Gap:</strong> Providing continuous numbers (e.g., <em>"Stroke thickness: 2.99pt | Barcode sharpness: 0.56"</em>) overwhelmed participants who did not know what baseline retail values should be. Future iterations must translate quantitative metrics into natural language heuristics (e.g., <em>"Barcode ink is 28% thicker than retail standard"</em>).</li>
-
-<p><hr/></p>
-
-<p><h2>7. VERIFICATION &amp; REPLICATION INSTRUCTIONS FOR TEACHING STAFF</h2></p>
-
-<p>To replicate all statistical tests, metrics, and tables reported in this document directly from the raw collected study data:</p>
-
-<p><pre><code>bash</p>
-<p><h1>Navigate to the Assignment 3 project directory</h1></p>
-<p>cd CSE594AS3</p>
-
-<p><h1>Run the automated Python replication script</h1></p>
-<p>python scripts/analyze_study_results.py</p>
-<p></code></pre></p>
-
-<p><h3>Expected Terminal Output:</h3></p>
-<li><strong>Total Records:</strong> 66 | <strong>Attention Check Pass Rate:</strong> 100.0% (6/6)</li>
-<li><strong>With AI Accuracy:</strong> 76.67% (23/30) | <strong>F1:</strong> 0.7407 | <strong>Confusion Matrix:</strong> TP=10, FP=2, TN=13, FN=5</li>
-<li><strong>Without AI Accuracy:</strong> 43.33% (13/30) | <strong>F1:</strong> 0.4516 | <strong>Confusion Matrix:</strong> TP=7, FP=9, TN=6, FN=8</li>
-<li><strong>Chi-Square ($\chi^2$):</strong> 5.6250 ($p = 0.0177$) | <strong>Odds Ratio:</strong> 4.297</li>
-<li><strong>Reaction Time:</strong> With AI = 10.73s vs. Without AI = 2.04s ($t = 2.645, p = 0.013$)</li>
-
+# Option B: Run via Python
+python scripts/analyze_study_results.py</code></pre>
+<p>Expected terminal output verifies:</p>
+<ul>
+  <li>Total records: 66 | Attention check pass rate: 100.0% (6 / 6)</li>
+  <li>With AI accuracy: 76.67% (23 / 30) | Without AI accuracy: 43.33% (13 / 30)</li>
+  <li>Chi-Square test: <em>\chi^2 = 5.6250, p = 0.0177</em> | Odds Ratio: <em>4.297</em></li>
+  <li>Reaction time: With AI = 10.73s vs. Without AI = 2.04s (<em>t = 2.645, p = 0.0130</em>)</li>
+</ul>
 </body>
 </html>
